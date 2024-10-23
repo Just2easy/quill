@@ -18,3 +18,14 @@ rm -rf $DIST/dist/*.css.js $DIST/dist/*.css.js.*
 cp package.json $DIST
 cp README.md $DIST
 cp LICENSE $DIST
+
+if [ -f $DIST/../scripts/.env ]; then
+    echo "------------------------------------"
+    echo "Found env file"
+    source $DIST/../scripts/.env
+
+    echo "Copying dist files"
+    cp -v $DIST/dist/quill.js $LOCAL_QUILL_DIR
+    cp -v $DIST/dist/quill.snow.css $LOCAL_QUILL_DIR
+    echo "------------------------------------"
+fi
