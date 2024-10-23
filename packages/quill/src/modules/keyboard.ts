@@ -351,6 +351,15 @@ class Keyboard extends Module<KeyboardOptions> {
     this.quill.updateContents(delta, Quill.sources.USER);
     this.quill.setSelection(range.index + 1, Quill.sources.SILENT);
     this.quill.focus();
+
+    // Added back in code removed from this commit
+    // https://github.com/slab/quill/commit/ba5461634caa8e24641b687f2d1a8768abfec640
+    Object.keys(context.format).forEach((name) => {
+      if (lineFormats[name] != null) return;
+      if (Array.isArray(context.format[name])) return;
+      if (name === 'code' || name === 'link') return;
+      this.quill.format(name, context.format[name], Quill.sources.USER);
+    });
   }
 }
 
