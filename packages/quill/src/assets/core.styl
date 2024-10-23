@@ -80,6 +80,10 @@ resets(arr)
       text-align: right
       white-space: nowrap
       width: LIST_STYLE_WIDTH
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
 
   li[data-list=checked],
   li[data-list=unchecked]
@@ -204,6 +208,7 @@ resets(arr)
 
   .ql-ui
     position: absolute
+    height: 100%;
 
 .ql-editor.ql-blank::before
   color: rgba(0,0,0,0.6)
